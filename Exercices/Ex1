@@ -1,4 +1,4 @@
-Insérer des données dans la table Utilisateur
+#Insérer des données dans la table Utilisateur
 
 INSERT INTO Utilisateur VALUES
 ('U1', 'LePEN', 'Lucas', 'lucas.lepen@ecole.fr', '3A', 'Informatique'),
@@ -12,7 +12,7 @@ INSERT INTO Utilisateur VALUES
 ('U9', 'Robert', 'Camille', 'camille.robert@ecole.fr', '3A', 'Énergie'),
 ('U10', 'Faure', 'Nicolas', 'nicolas.faure@ecole.fr', '4A', 'Mécatronique');
 
-Insérer des données dans la table Reservation
+#Insérer des données dans la table Reservation
 
 INSERT INTO Reservation VALUES
 ('R1', 'U1', 'M1', '2025-05-10', '2025-05-12', 'validée', 1, 'U1', 'M1'),
@@ -26,7 +26,7 @@ INSERT INTO Reservation VALUES
 ('R9', 'U9', 'M10', '2025-05-17', '2025-05-21', 'validée', 2, 'U9', 'M10'),
 ('R10', 'U10', 'M9', '2025-05-18', '2025-05-22', 'refusée', 1, 'U10', 'M9');
 
-Insérer des données dans la table Matériel
+#Insérer des données dans la table Matériel
 
 INSERT INTO Matériel VALUES
 ('M1', 'Oscilloscope', 5, 'fonctionnel'),
@@ -40,7 +40,7 @@ INSERT INTO Matériel VALUES
 ('M9', 'Caméra infrarouge', 3, 'en réparation'),
 ('M10', 'Écran LCD', 7, 'fonctionnel');
 
-Selectionner tout le contenu des tables 
+#Selectionner tout le contenu des tables 
 
 SELECT * FROM Utilisateur;
 SELECT * FROM Matériel;
