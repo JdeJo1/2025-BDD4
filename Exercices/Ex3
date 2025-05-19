@@ -1,3 +1,4 @@
+#Requête 1 : On récupère les infos de l’utilisateur lié à une réservation spécifique en joignant Reservation et Utilisateur via leur clé commune id_utilisateur.
 
 SELECT Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom, Utilisateur.email, Utilisateur.promotion, Utilisateur.filliere,
        Reservation.id_reservation, Reservation.date_debut, Reservation.date_fin, Reservation.statut, Reservation.quantite_reservee
@@ -6,6 +7,7 @@ JOIN Utilisateur ON Reservation.id_utilisateur = Utilisateur.id_utilisateur
 WHERE Reservation.id_reservation = 'R3';
 
 
+#Requête 2 : On récupère les infos du matériel emprunté par un utilisateur donné, en joignant les tables Reservation, Utilisateur et Matériel grâce à leurs clés partagées (id_utilisateur et id_materiel).
 
 SELECT Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom,
        Materiel.id_materiel, Materiel.nom, Materiel.etat,
