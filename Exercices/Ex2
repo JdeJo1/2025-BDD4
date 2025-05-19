@@ -1,8 +1,20 @@
 # Requête sur la table Utilisateur
 #Lister les utilisateurs de la filière Informatique en 3A
-
 SELECT *
 FROM Utilisateur
 WHERE filliere = 'Informatique' AND promotion = '3A';
 
 
+
+#Requête sur la table Matériel
+#Afficher le matériel qui est encore fonctionnel et dont la quantité disponible est supérieure à 5
+SELECT *
+FROM Matériel
+WHERE etat = 'fonctionnel' AND quantite_disponible > 5;
+
+
+#Requête sur la table Reservation
+#Afficher les réservations validées entre le 10 mai 2025 et le 20 mai 2025
+SELECT *
+FROM Reservation
+WHERE statut = 'validée' AND date_debut >= '2025-05-10' AND date_fin <= '2025-05-20';
