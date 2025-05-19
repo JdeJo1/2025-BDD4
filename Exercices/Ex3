@@ -1,1 +1,16 @@
 
+SELECT Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom, Utilisateur.email, Utilisateur.promotion, Utilisateur.filliere,
+       Reservation.id_reservation, Reservation.date_debut, Reservation.date_fin, Reservation.statut, Reservation.quantite_reservee
+FROM Reservation
+JOIN Utilisateur ON Reservation.id_utilisateur = Utilisateur.id_utilisateur
+WHERE Reservation.id_reservation = 'R3';
+
+
+
+SELECT Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom,
+       Materiel.id_materiel, Materiel.nom, Materiel.etat,
+       Reservation.date_debut, Reservation.date_fin, Reservation.statut, Reservation.quantite_reservee
+FROM Reservation
+JOIN Utilisateur ON Reservation.id_utilisateur = Utilisateur.id_utilisateur
+JOIN Materiel ON Reservation.id_materiel = Materiel.id_materiel
+WHERE Utilisateur.id_utilisateur = 'U1';
