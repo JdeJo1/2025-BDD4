@@ -17,4 +17,4 @@ WHERE etat = 'fonctionnel' AND quantite_disponible > 5;
 #Afficher les réservations validées entre le 10 mai 2025 et le 20 mai 2025
 SELECT *
 FROM Reservation
-WHERE statut = 'validée' AND date_debut >= '2025-05-10' AND date_fin <= '2025-05-20';
+WHERE statut = 'validee' AND date_debut >= '2025-05-10' AND date_fin <= '2025-05-20';
