@@ -9,7 +9,7 @@ WHERE filliere = 'Informatique' AND promotion = '3A';
 #Requête sur la table Matériel
 #Afficher le matériel qui est encore fonctionnel et dont la quantité disponible est supérieure à 5
 SELECT *
-FROM Matériel
+FROM Materiel
 WHERE etat = 'fonctionnel' AND quantite_disponible > 5;
 
 
