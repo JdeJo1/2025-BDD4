@@ -1,0 +1,39 @@
+INSERT INTO Utilisateur VALUES
+('U1', 'LePEN', 'Lucas', 'lucas.lepen@ecole.fr', '3A', 'Informatique'),
+('U2', 'Thibonnet', 'Julian', 'julian.thibonnet@ecole.fr', '4A', 'Électronique'),
+('U3', 'Papillon', 'Aurelien', 'aurelien.papillon@ecole.fr', '5A', 'Mécanique'),
+('U4', 'Baril', 'Jonathan', 'jonathan.baril@ecole.fr', '3A', 'Informatique'),
+('U5', 'Aboud', 'Kenza', 'kenza.aboud@ecole.fr', '4A', 'Robotique'),
+('U6', 'Rouviere', 'Nathan', 'nathan.rouviere@ecole.fr', '3A', 'Électronique'),
+('U7', 'Moreau', 'Hugo', 'hugo.moreau@ecole.fr', '5A', 'Informatique'),
+('U8', 'Garcia', 'Thomas', 'thomas.garcia@ecole.fr', '4A', 'Automatique'),
+('U9', 'Robert', 'Camille', 'camille.robert@ecole.fr', '3A', 'Énergie'),
+('U10', 'Faure', 'Nicolas', 'nicolas.faure@ecole.fr', '4A', 'Mécatronique');
+
+INSERT INTO Reservation VALUES
+('R1', 'U1', 'M1', '2025-05-10', '2025-05-12', 'validée', 1, 'U1', 'M1'),
+('R2', 'U2', 'M2', '2025-05-11', '2025-05-13', 'en attente', 1, 'U2', 'M2'),
+('R3', 'U3', 'M4', '2025-05-09', '2025-05-14', 'validée', 2, 'U3', 'M4'),
+('R4', 'U4', 'M5', '2025-05-15', '2025-05-17', 'refusée', 1, 'U4', 'M5'),
+('R5', 'U5', 'M3', '2025-05-16', '2025-05-18', 'validée', 1, 'U5', 'M3'),
+('R6', 'U6', 'M6', '2025-05-14', '2025-05-19', 'annulée', 1, 'U6', 'M6'),
+('R7', 'U7', 'M7', '2025-05-12', '2025-05-15', 'validée', 1, 'U7', 'M7'),
+('R8', 'U8', 'M8', '2025-05-13', '2025-05-20', 'en attente', 3, 'U8', 'M8'),
+('R9', 'U9', 'M10', '2025-05-17', '2025-05-21', 'validée', 2, 'U9', 'M10'),
+('R10', 'U10', 'M9', '2025-05-18', '2025-05-22', 'refusée', 1, 'U10', 'M9');
+
+INSERT INTO Matériel VALUES
+('M1', 'Oscilloscope', 5, 'fonctionnel'),
+('M2', 'Imprimante 3D', 2, 'fonctionnel'),
+('M3', 'Ordinateur portable', 10, 'en réparation'),
+('M4', 'Carte Arduino', 20, 'fonctionnel'),
+('M5', 'Kit robotique', 4, 'fonctionnel'),
+('M6', 'Alimentation variable', 6, 'fonctionnel'),
+('M7', 'Raspberry Pi', 8, 'fonctionnel'),
+('M8', 'Capteurs température', 15, 'fonctionnel'),
+('M9', 'Caméra infrarouge', 3, 'en réparation'),
+('M10', 'Écran LCD', 7, 'fonctionnel');
+
+SELECT * FROM Utilisateur;
+SELECT * FROM Matériel;
+SELECT * FROM Reservation;
