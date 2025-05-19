@@ -1,1 +1,8 @@
+# Requête sur la table Utilisateur
+#Lister les utilisateurs de la filière Informatique en 3A
+
+SELECT *
+FROM Utilisateur
+WHERE filliere = 'Informatique' AND promotion = '3A';
+
 
