@@ -3,7 +3,7 @@ SELECT DISTINCT Utilisateur.*
 FROM Utilisateur
 JOIN Reservation ON Utilisateur.id_utilisateur = Reservation.id_utilisateur;
 
--- La comme tout les utilisateurs sont cités dans des reservations on vient observer tout les utilisateurs de la table, je vais créer d'autres materiels pour la requête suivante histoire de voir des
+-- La comme tout les utilisateurs sont cités dans des reservations donc on observe tout les utilisateurs de la table, je vais créer d'autres materiels pour la requête suivante histoire de voir des
 -- materiels qui n'ont pas ete utilisés.
 
 INSERT INTO materiel VALUES
@@ -17,3 +17,29 @@ WHERE id_materiel NOT IN (
     SELECT id_materiel
     FROM Reservation
 );
+
+-- Pour la requête suivante aucun des materiels a ete emprunté plus de 3 fois donc je viens créé des reservations sur le même materiel histoire de voir des résultats dans la requête.
+INSERT INTO RESERVATION VALUES
+('R11', '2025-05-13', '2025-05-20', 'en attente', 1, 'U8', 'M12'),
+('R12', '2025-05-17', '2025-05-21', 'validee', 1, 'U9', 'M12'),
+('R13', '2025-05-18', '2025-05-22', 'refusee', 1, 'U10', 'M12'),
+('R14', '2025-05-13', '2025-05-20', 'en attente', 1, 'U8', 'M12'),
+('R15', '2025-05-17', '2025-05-21', 'validee', 1, 'U9', 'M12'),
+('R16', '2025-05-18', '2025-05-22', 'refusee', 1, 'U10', 'M12');
+
+
+-- Requête 3: On select tout les materiels qui ont ete emprunté + de 3 fois. 
+SELECT id_materiel, COUNT(*) AS nombre_emprunts
+FROM Reservation
+GROUP BY id_materiel
+HAVING COUNT(*) > 3;
+
+-- Requête 4: On vient observer le nombre d'emprunts pour chaque utilisateurs ordonné par id_utilisateur (avec une jointure) et afficher même ceux qui n'en n'ont pas avec un 0
+SELECT Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom, 
+       COUNT(Reservation.id_reservation) AS nombre_emprunts
+FROM Utilisateur
+LEFT JOIN Reservation ON Utilisateur.id_utilisateur = Reservation.id_utilisateur
+GROUP BY Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom
+ORDER BY Utilisateur.id_utilisateur;
+
+
