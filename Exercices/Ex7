@@ -1,0 +1,8 @@
+-- Requête 1: On vient rechercher tout les utilisateurs qui sont listés dans la table reservation
+SELECT DISTINCT Utilisateur.*
+FROM Utilisateur
+JOIN Reservation ON Utilisateur.id_utilisateur = Reservation.id_utilisateur;
+
+-- La comme tout les utilisateurs sont cités dans des reservations on vient observer tout les utilisateurs je vais créer d'autres utilisateurs pour la requête suivante histoire de voir des
+-- utilisateurs qui ne sont pas dans des reservations.
+
