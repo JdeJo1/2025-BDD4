@@ -1,17 +1,17 @@
-#Requête 1 : Lister les utilisateurs qui sont en informatique et en 3ème année
+-- Requête 1 : Lister les utilisateurs qui sont en informatique et en 3ème année
 SELECT *
 FROM Utilisateur
 WHERE filiere = 'Informatique' AND promotion = '3A';
 
 
 
-#Requête 2 : Afficher le matériel qui est encore fonctionnel et dont la quantité disponible est supérieure à 5
+-- Requête 2 : Afficher le matériel qui est encore fonctionnel et dont la quantité disponible est supérieure à 5
 SELECT *
 FROM Materiel
 WHERE etat = 'fonctionnel' AND quantite_disponible > 5;
 
 
-#Requête 2 : Afficher les réservations validées entre le 10 mai 2025 et le 20 mai 2025
+-- Requête 2 : Afficher les réservations validées entre le 10 mai 2025 et le 20 mai 2025
 SELECT *
 FROM Reservation
 WHERE statut = 'validee' AND date_debut >= '2025-05-10' AND date_fin <= '2025-05-20';
