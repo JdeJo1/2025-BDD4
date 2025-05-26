@@ -4,5 +4,9 @@ FROM Reservation
 WHERE date_debut >= '2025-05-10' AND date_fin <= '2025-05-15';
 
 
+#Requête 2 : On recherche le nombre d'utilisateur ayant emprunté un matériel
+SELECT COUNT(DISTINCT id_utilisateur) AS nombre_utilisateurs
+FROM Reservation
+WHERE id_materiel = 'M1' AND statut = 'validee';
 
-#Requête 2 : 
+Les deux requêtes sont des fonctions d'aggregation car elle utilisent la fonction COUNT pour calculer le nombre de reservation dans une période donnée ou le nombre d'utilisateur ayant emprunté un matériel précis.
