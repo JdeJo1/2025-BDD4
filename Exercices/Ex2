@@ -1,7 +1,7 @@
 #Requête 1 : Lister les utilisateurs qui sont en informatique et en 3ème année
 SELECT *
 FROM Utilisateur
-WHERE filliere = 'Informatique' AND promotion = '3A';
+WHERE filiere = 'Informatique' AND promotion = '3A';
 
 
 
