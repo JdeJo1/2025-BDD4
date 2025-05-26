@@ -1,1 +1,7 @@
+#Requête 1: On vient update la quantité disponible d'un matériel par exemple si deux materiels sont reservés pour les enlever, on affiche ensuite la table materiel pour vérifier que les materiels ont bien été réduit.
+UPDATE Materiel
+SET quantite_disponible = quantite_disponible - 2
+WHERE id_materiel = 'M4';
+SELECT * FROM materiel;
 
+#Requête 2:
