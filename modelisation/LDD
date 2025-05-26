@@ -18,14 +18,14 @@ CREATE TABLE Matériel(
 
 CREATE TABLE Reservation(
    id_reservation VARCHAR(50),
-   id_user VARCHAR(50),
+   id_utilisateur VARCHAR(50),
    id_materiel VARCHAR(50),
    date_debut DATE,
    date_fin DATE,
    statut VARCHAR(50),
    quantite_reservee SMALLINT,
    id_utilisateur VARCHAR(50) NOT NULL,
-   id_materiel_1 VARCHAR(50) NOT NULL,
+   id_materiel VARCHAR(50) NOT NULL,
    PRIMARY KEY(id_reservation),
    FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur),
    FOREIGN KEY(id_materiel) REFERENCES Materiel(id_materiel)
