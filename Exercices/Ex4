@@ -1,10 +1,10 @@
-#Requête 1 : On recherche le nombre de reservations entre le 10 mai 2025 et 15 mai 2025
+-- Requête 1 : On recherche le nombre de reservations entre le 10 mai 2025 et 15 mai 2025
 SELECT COUNT(*) AS nombre_reservations
 FROM Reservation
 WHERE date_debut >= '2025-05-10' AND date_fin <= '2025-05-15';
 
 
-#Requête 2 : On recherche le nombre d'utilisateur ayant emprunté un matériel
+-- Requête 2 : On recherche le nombre d'utilisateur ayant emprunté un matériel
 SELECT COUNT(DISTINCT id_utilisateur) AS nombre_utilisateurs
 FROM Reservation
 WHERE id_materiel = 'M1' AND statut = 'validee';
