@@ -1,1 +1,10 @@
+-- Requête 1: On vient delete la ligne R4 de id_reservation 
+DELETE FROM Reservation
+WHERE id_reservation = 'R4';
 
+-- Requête 2: On regarde si la ligne a bien été supprimée 
+SELECT * FROM Reservation;
+
+-- Requête 3: On vient supprimer toutes les reservations qui ont passé le 14/05/2025 (je ne voulais pas supprimer toutes les reservations sinon j'aurai mis current_date 
+DELETE FROM Reservation
+WHERE date_fin <= '2025-05-14';
