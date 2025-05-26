@@ -16,3 +16,58 @@ ADD CONSTRAINT fk_disponibilite
 FOREIGN KEY (id_disponibilite) REFERENCES Disponibilite(id_disponibilite);
 
 -- Requête 3: 
+
+
+1. Création d’exemples de base
+🔹 Ajout d’un utilisateur et d’un matériel
+sql
+Copier
+Modifier
+INSERT INTO Utilisateur (id_utilisateur, nom, prenom, email, promotion, filliere)
+VALUES ('U100', 'Dupont', 'Marie', 'marie.dupont@example.com', '2025', 'Informatique');
+
+INSERT INTO Materiel (id_materiel, nom, quantite_disponible, etat)
+VALUES ('M100', 'Caméra HD', 5, 'bon');
+🔹 Ajout d’une disponibilité
+sql
+Copier
+Modifier
+INSERT INTO Disponibilite (id_disponibilite, id_materiel, date_debut, date_fin)
+VALUES ('D100', 'M100', '2025-06-01', '2025-06-10');
+ Tentative de réservation valide
+Réserver du 3 au 6 juin → dans la période disponible :
+
+sql
+Copier
+Modifier
+INSERT INTO Reservation (
+    id_reservation, date_debut, date_fin, statut, quantite_reservee,
+    id_utilisateur, id_materiel, id_disponibilite
+)
+SELECT 
+    'R100', '2025-06-03', '2025-06-06', 'validee', 1,
+    'U100', 'M100', id_disponibilite
+FROM Disponibilite
+WHERE id_materiel = 'M100'
+  AND '2025-06-03' >= date_debut
+  AND '2025-06-06' <= date_fin;
+Tentative de réservation invalide
+Réserver du 12 au 14 juin → hors période disponible. Rien ne sera inséré, mais on peut tester avec CASE :
+
+sql
+Copier
+Modifier
+SELECT 
+    CASE 
+        WHEN '2025-06-12' >= date_debut AND '2025-06-14' <= date_fin
+        THEN 'OK'
+        ELSE 'KO'
+    END AS statut_disponibilite
+FROM Disponibilite
+WHERE id_materiel = 'M100';
+ Vérifier ce qui a été réservé
+sql
+Copier
+Modifier
+SELECT * FROM Reservation
+WHERE id_materiel = 'M100';
