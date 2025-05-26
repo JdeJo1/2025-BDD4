@@ -25,7 +25,7 @@ INSERT INTO Reservation VALUES
 ('R10', 'U10', 'M9', '2025-05-18', '2025-05-22', 'refusee', 1, 'U10', 'M9');
 
 #Requête 3 : Insérer des données dans la table Matériel
-INSERT INTO Matériel VALUES
+INSERT INTO Materiel VALUES
 ('M1', 'Oscilloscope', 5, 'fonctionnel'),
 ('M2', 'Imprimante 3D', 2, 'fonctionnel'),
 ('M3', 'Ordinateur portable', 10, 'en réparation'),
