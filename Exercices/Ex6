@@ -8,3 +8,6 @@ SELECT * FROM Reservation;
 -- Requête 3: On vient supprimer toutes les reservations qui ont passé le 14/05/2025 (je ne voulais pas supprimer toutes les reservations sinon j'aurai mis current_date 
 DELETE FROM Reservation
 WHERE date_fin <= '2025-05-14';
+
+-- Requête 4: On regarde si les reservations ont bien ete supprimes
+SELECT * FROM Reservation;
