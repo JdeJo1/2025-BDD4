@@ -8,7 +8,7 @@ CREATE TABLE Utilisateur(
    PRIMARY KEY(id_utilisateur)
 );
 
-CREATE TABLE Matériel(
+CREATE TABLE Materiel(
    id_materiel VARCHAR(50),
    nom VARCHAR(50),
    quantite_disponible SMALLINT,
