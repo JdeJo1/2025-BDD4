@@ -1,4 +1,4 @@
-#Requête 1 : Insérer des données dans la table Utilisateur
+-- Requête 1 : Insérer des données dans la table Utilisateur
 INSERT INTO Utilisateur VALUES
 ('U1', 'LePEN', 'Lucas', 'lucas.lepen@ecole.fr', '3A', 'Informatique'),
 ('U2', 'Thibonnet', 'Julian', 'julian.thibonnet@ecole.fr', '4A', 'Électronique'),
@@ -11,7 +11,7 @@ INSERT INTO Utilisateur VALUES
 ('U9', 'Robert', 'Camille', 'camille.robert@ecole.fr', '3A', 'Énergie'),
 ('U10', 'Faure', 'Nicolas', 'nicolas.faure@ecole.fr', '4A', 'Mécatronique');
 
-#Requête 2 : Insérer des données dans la table Reservation
+-- Requête 2 : Insérer des données dans la table Reservation
 INSERT INTO Reservation VALUES
 ('R1', '2025-05-10', '2025-05-12', 'validee', 1, 'U1', 'M1'),
 ('R2', '2025-05-11', '2025-05-13', 'en attente', 1, 'U2', 'M2'),
@@ -25,7 +25,7 @@ INSERT INTO Reservation VALUES
 ('R10', '2025-05-18', '2025-05-22', 'refusee', 1, 'U10', 'M9');
 
 
-#Requête 3 : Insérer des données dans la table Matériel
+-- Requête 3 : Insérer des données dans la table Matériel
 INSERT INTO Materiel VALUES
 ('M1', 'Oscilloscope', 5, 'fonctionnel'),
 ('M2', 'Imprimante 3D', 2, 'fonctionnel'),
@@ -38,11 +38,11 @@ INSERT INTO Materiel VALUES
 ('M9', 'Caméra infrarouge', 3, 'en réparation'),
 ('M10', 'Écran LCD', 7, 'fonctionnel');
 
-#Requête 4 : selectionner tout le contenu de la table utilisateur
+-- Requête 4 : selectionner tout le contenu de la table utilisateur
 SELECT * FROM Utilisateur;
 
-#Requête 5 : selectionner tout le contenu de la table Materiel
+-- Requête 5 : selectionner tout le contenu de la table Materiel
 SELECT * FROM Materiel;
 
-#Requête 6 : selectionner tout le contenu de la table Reservation
+-- Requête 6 : selectionner tout le contenu de la table Reservation
 SELECT * FROM Reservation;
