@@ -1,0 +1,18 @@
+-- Requête 1: on vient ajouter une nouvelle table disponibilités comme indiqué dans l'énoncé.
+CREATE TABLE Disponibilite (
+    id_disponibilite VARCHAR(50) PRIMARY KEY,
+    id_materiel VARCHAR(50) NOT NULL,
+    date_debut DATE NOT NULL,
+    date_fin DATE NOT NULL,
+    FOREIGN KEY (id_materiel) REFERENCES Materiel(id_materiel)
+);
+
+-- Requête2: On vient modifier la table Reservation pour y ajouter une nouvelle colonne id_disponibilité avec clé étrangère référençant la table disponibilité
+ALTER TABLE Reservation
+ADD COLUMN id_disponibilite VARCHAR(50);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT fk_disponibilite
+FOREIGN KEY (id_disponibilite) REFERENCES Disponibilite(id_disponibilite);
+
+-- Requête 3: 
