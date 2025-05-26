@@ -6,3 +6,14 @@ JOIN Reservation ON Utilisateur.id_utilisateur = Reservation.id_utilisateur;
 -- La comme tout les utilisateurs sont cités dans des reservations on vient observer tout les utilisateurs de la table, je vais créer d'autres materiels pour la requête suivante histoire de voir des
 -- materiels qui n'ont pas ete utilisés.
 
+INSERT INTO materiel VALUES
+('M11', 'PS5', 10, 'en réparation'),
+('M12', 'PIC24FJ256GA702', 7, 'fonctionnel');
+
+-- Requête 2: On vient selectionner tout les materiels qui n'ont pas ete reservé, on retrouve donc bien les deux materiels que je viens de créer.
+SELECT *
+FROM Materiel
+WHERE id_materiel NOT IN (
+    SELECT id_materiel
+    FROM Reservation
+);
