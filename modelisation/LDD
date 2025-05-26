@@ -4,7 +4,7 @@ CREATE TABLE Utilisateur(
    prenom VARCHAR(50),
    email VARCHAR(50),
    promotion VARCHAR(50),
-   filliere VARCHAR(50),
+   filiere VARCHAR(50),
    PRIMARY KEY(id_utilisateur)
 );
 
