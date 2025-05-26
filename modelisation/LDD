@@ -28,5 +28,5 @@ CREATE TABLE Reservation(
    id_materiel_1 VARCHAR(50) NOT NULL,
    PRIMARY KEY(id_reservation),
    FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur),
-   FOREIGN KEY(id_materiel_1) REFERENCES Matériel(id_materiel)
+   FOREIGN KEY(id_materiel) REFERENCES Materiel(id_materiel)
 );
