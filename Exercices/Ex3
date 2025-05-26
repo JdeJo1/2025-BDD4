@@ -1,5 +1,5 @@
 #Requête 1 : On récupère les infos de l’utilisateur lié à une réservation spécifique en joignant Reservation et Utilisateur via leur clé commune id_utilisateur.
-SELECT Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom, Utilisateur.email, Utilisateur.promotion, Utilisateur.filliere,
+SELECT Utilisateur.id_utilisateur, Utilisateur.nom, Utilisateur.prenom, Utilisateur.email, Utilisateur.promotion, Utilisateur.filiere,
        Reservation.id_reservation, Reservation.date_debut, Reservation.date_fin, Reservation.statut, Reservation.quantite_reservee
 FROM Reservation
 JOIN Utilisateur ON Reservation.id_utilisateur = Utilisateur.id_utilisateur
