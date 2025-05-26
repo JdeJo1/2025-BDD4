@@ -3,6 +3,6 @@ SELECT DISTINCT Utilisateur.*
 FROM Utilisateur
 JOIN Reservation ON Utilisateur.id_utilisateur = Reservation.id_utilisateur;
 
--- La comme tout les utilisateurs sont cités dans des reservations on vient observer tout les utilisateurs je vais créer d'autres utilisateurs pour la requête suivante histoire de voir des
--- utilisateurs qui ne sont pas dans des reservations.
+-- La comme tout les utilisateurs sont cités dans des reservations on vient observer tout les utilisateurs de la table, je vais créer d'autres materiels pour la requête suivante histoire de voir des
+-- materiels qui n'ont pas ete utilisés.
 
