@@ -1,0 +1,38 @@
+-- Requête 1: On vient créer une nouvelle table RetourMateriel
+CREATE TABLE RetourMateriel (
+    id_retour VARCHAR(50) PRIMARY KEY,
+    id_reservation VARCHAR(50),
+    date_retour DATE,
+    retard BOOLEAN,
+    FOREIGN KEY (id_reservation) REFERENCES Reservation(id_reservation)
+);
+
+-- Requête 2: On vient modifier la table Reservation pour ajouter une colonne de date de retour réel
+ALTER TABLE Reservation
+ADD COLUMN date_retour_effectif DATE;
+
+-- Requête 3: On implémente une fonctionnalité permettant de calculer automatiquement le retard 
+INSERT INTO RetourMateriel (id_retour, id_reservation, date_retour, retard)
+SELECT 
+    'RET001',
+    r.id_reservation,
+    '2025-06-12',
+    CASE 
+        WHEN '2025-06-12' > r.date_fin THEN TRUE
+        ELSE FALSE
+    END
+FROM Reservation r
+WHERE r.id_reservation = 'R100';
+
+-- Requête 4: On ajoute une fonctionnalité permettant de verifier si un retour est en retard avec les pénalités de retard
+SELECT 
+    r.id_reservation,
+    rm.date_retour,
+    r.date_fin AS date_prevue,
+    GREATEST((rm.date_retour - r.date_fin), 0) AS jours_de_retard,
+    CASE 
+        WHEN rm.retard THEN GREATEST((rm.date_retour - r.date_fin), 0) * 2
+        ELSE 0
+    END AS montant_penalite
+FROM RetourMateriel rm
+JOIN Reservation r ON rm.id_reservation = r.id_reservation;
