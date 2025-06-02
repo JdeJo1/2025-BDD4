@@ -1,1 +1,92 @@
+alter table disponibilite drop constraint disponibilite_id_materiel_fkey;
+alter table reservation drop constraint fk_reservation_disponibilite;
+alter table reservation drop constraint reservation_id_materiel_fkey;
+alter table reservation drop constraint reservation_id_utilisateur_fkey;
 
+TRUNCATE TABLE reservation RESTART IDENTITY CASCADE;
+TRUNCATE TABLE disponibilite RESTART IDENTITY CASCADE;
+TRUNCATE TABLE materiel RESTART IDENTITY CASCADE;
+TRUNCATE TABLE utilisateur RESTART IDENTITY CASCADE;
+
+
+-- Insert 1,000,000 rows into utilisateur
+DO $$
+BEGIN
+    FOR i IN 1..100000 LOOP
+        INSERT INTO utilisateur (id_utilisateur, nom, prenom, email, promotion, filiere)
+        VALUES (
+            i,
+            'nom_' || i,
+            'prenom_' || i,
+            'user_' || i || '@ecole.fr',
+            '2025',
+            'Informatique'
+        );
+    END LOOP;
+END $$;
+
+-- Insert 1,000,000 rows into materiel
+DO $$
+DECLARE
+    i INT;
+BEGIN
+    FOR i IN 1..100000 LOOP
+        INSERT INTO materiel (id_materiel, nom, quantite_disponible, etat)
+        VALUES (
+            i,
+            'materiel_' || i,
+            (random() * 20)::INT + 1,
+            'bon'
+        );
+    END LOOP;
+END $$;
+
+
+-- Insert 2,000,000 rows into disponibilite
+DO $$
+DECLARE
+    i INT;
+    start_date DATE;
+    end_date DATE;
+BEGIN
+    FOR i IN 1..200000 LOOP
+        -- Generate random start and end dates
+        start_date := DATE '2025-01-01' + (random() * 365)::INT;
+        end_date := start_date + (random() * 30)::INT;
+
+        INSERT INTO disponibilite (id_disponibilite, id_materiel, date_debut, date_fin)
+			VALUES (
+    			i,
+    			(random() * 99999)::INT + 1,
+    			start_date,
+    			end_date
+				);
+    END LOOP;
+END $$;
+
+-- Insert 2,000,000 rows into reservation
+DO $$
+DECLARE
+    i INT;
+    reservation_date DATE;
+    return_date DATE;
+	effective_return_date DATE;
+BEGIN
+    FOR i IN 1..200000 LOOP
+        -- Generate random reservation and return dates
+        reservation_date := DATE '2025-01-01' + (random() * 365)::INT;
+        return_date := reservation_date + (random() * 15)::INT;
+		effective_return_date := reservation_date + (random() * 15)::INT;
+
+        INSERT INTO reservation (id_reservation,date_debut,date_fin,id_utilisateur,id_materiel,id_disponibilite,date_retour_effectif)
+        VALUES (
+            i,
+            reservation_date,
+            return_date,
+            (random() * 999999)::INT + 1, -- Random numero_etudiant between 1 and 1,000,000
+            (random() * 999999)::INT + 1,  -- Random identifiant_materiel between 1 and 1,000,000
+			(random() * 999999)::INT + 1 , -- Random identifiant_materiel between 1 and 1,000,000
+			effective_return_date
+        );
+    END LOOP;
+END $$;
