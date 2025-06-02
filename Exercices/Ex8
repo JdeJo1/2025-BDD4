@@ -23,7 +23,7 @@ INSERT INTO Utilisateur (id_utilisateur, nom, prenom, email, promotion, filliere
 VALUES ('U100', 'Dupont', 'Marie', 'marie.dupont@example.com', '2025', 'Informatique');
 
 INSERT INTO Materiel (id_materiel, nom, quantite_disponible, etat)
-VALUES ('M100', 'Caméra HD', 5, 'bon');
+VALUES ('M13', 'Caméra HD', 5, 'fonctionnel');
 
 Ajout d’une disponibilité
 INSERT INTO Disponibilite (id_disponibilite, id_materiel, date_debut, date_fin)
