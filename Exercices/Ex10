@@ -1,3 +1,5 @@
+-- Requête 1: Voila le script modifié selon ma base de donnée
+
 alter table disponibilite drop constraint disponibilite_id_materiel_fkey;
 alter table reservation drop constraint fk_reservation_disponibilite;
 alter table reservation drop constraint reservation_id_materiel_fkey;
@@ -85,8 +87,25 @@ BEGIN
             return_date,
             (random() * 999999)::INT + 1, -- Random numero_etudiant between 1 and 1,000,000
             (random() * 999999)::INT + 1,  -- Random identifiant_materiel between 1 and 1,000,000
-			(random() * 999999)::INT + 1 , -- Random identifiant_materiel between 1 and 1,000,000
-			effective_return_date
+	   (random() * 999999)::INT + 1 , -- Random identifiant_materiel between 1 and 1,000,000
+	   effective_return_date
         );
     END LOOP;
 END $$;
+
+
+
+-- Requête 2: On vient faire un explain analyze avec des requêtes de jointures
+EXPLAIN ANALYZE
+SELECT 
+    r.id_reservation, r.date_debut, r.date_fin,
+    u.nom, u.prenom,
+    m.nom AS nom_materiel,
+    d.date_debut AS dispo_debut, d.date_fin AS dispo_fin
+FROM reservation r
+JOIN utilisateur u ON r.id_utilisateur = u.id_utilisateur
+JOIN materiel m ON r.id_materiel = m.id_materiel
+JOIN disponibilite d ON r.id_disponibilite = d.id_disponibilite
+WHERE r.date_debut >= '2025-06-01';
+
+
